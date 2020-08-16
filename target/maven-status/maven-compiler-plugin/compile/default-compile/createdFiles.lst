@@ -1,0 +1,5 @@
+com\service\ResourceNotFoundException.class
+com\service\ClienteRepository.class
+com\service\ClienteController.class
+com\service\Application.class
+com\service\Cliente.class
