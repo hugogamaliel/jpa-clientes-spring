@@ -29,12 +29,12 @@ public class ClienteController
     private ClienteRepository clienteRepository;
 
     @GetMapping("/clientes")
-    public List<Cliente> getAllEmployees() {
+    public List<Cliente> getAllClientes() {
         return clienteRepository.findAll();
     }
 
     @GetMapping("/clientes/{id}")
-    public ResponseEntity<Cliente> getEmployeeById(@PathVariable(value = "id_cliente") Long clienteId)
+    public ResponseEntity<Cliente> getClienteById(@PathVariable(value = "id_cliente") Long clienteId)
         throws ResourceNotFoundException {
         Cliente cliente = clienteRepository.findById(clienteId)
           .orElseThrow(() -> new ResourceNotFoundException("Cliente not found for this id :: " + clienteId));

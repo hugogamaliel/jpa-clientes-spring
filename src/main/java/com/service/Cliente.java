@@ -2,13 +2,11 @@ package com.service;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "employees")
+@Table(name="inv_clientes")
 public class Cliente 
 {
 	
@@ -20,7 +18,9 @@ public class Cliente
 	private String lugar;
 	 
 	public Cliente() 
-	{}
+	{
+		
+	}
 	
 	/*
 	public Employee(String firstName, String lastName, String emailId) {
@@ -31,6 +31,7 @@ public class Cliente
 	*/
 	
 	@Id
+	@Column(name = "id_cliente", nullable = false)
 	public long getIdCliente() {
         return id_cliente;
     }
@@ -48,7 +49,7 @@ public class Cliente
     }
     
     @Column(name = "direccion", nullable = false)
-    public String getDirecion() {
+    public String getDireccion() {
         return direccion;
     }
     public void setDireccion(String direccion) {
@@ -79,6 +80,4 @@ public class Cliente
         this.lugar = lugar;
     }
 	  
-	    
-
 }
