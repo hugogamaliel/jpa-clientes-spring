@@ -40,4 +40,14 @@ public class ClienteController
           .orElseThrow(() -> new ResourceNotFoundException("Cliente not found for this id :: " + clienteId));
         return ResponseEntity.ok().body(cliente);
     }
+    
+    @GetMapping("/greeting")
+	public String greeting(){
+		return "hello";
+	}
+    
+    @GetMapping("/saludo")
+	public String saludo(){
+		return "saludo";
+	}
 }
