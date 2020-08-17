@@ -11,5 +11,17 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package' 
             }
         }
-    }
-}
+        stage('Docker Build') {
+            agent any
+            steps {
+                    sh 'docker build -t hugogamaliel/jpa-clientes-spring .'
+                  }
+          }
+        stage('Docker Push') {
+            agent any
+            steps {
+                    sh 'docker push hugogamaliel/jpa-clientes-spring'
+                  }
+            }
+      }
+  }
