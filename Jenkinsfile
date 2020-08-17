@@ -19,11 +19,12 @@ pipeline {
         }
     stage('Docker Push') {
             agent any
-            steps {
-                    withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: '79101A5s.', usernameVariable: 'hugogamaliel')]) {
-                    sh 'docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}'
-                    sh 'docker push hugogamaliel/jpa-clientes-spring'
-                  }
+            steps   {
+                        withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: '79101A5s.', usernameVariable: 'hugogamaliel')]) {
+                            sh 'docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}'
+                            sh 'docker push hugogamaliel/jpa-clientes-spring'
+                        }
+                    }
         }
-      }
-  }
+    }
+}
