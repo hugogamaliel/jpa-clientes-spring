@@ -1,31 +1,23 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3-alpine' 
-            args '-v /root/.m2:/root/.m2' 
-        }
-    }
-    options {
-        skipStagesAfterUnstable()
-    }
-    stages {
-        stage('Build') { 
-            steps {
-                sh 'mvn -B -DskipTests clean package' 
+  agent none
+  stages {
+    stage('Maven Install') {
+      agent {
+              docker {
+                image 'maven:3.5.0'
+              }
             }
-        }
-        stage('Deliver') { 
-            steps {
-                sh './jenkins/scripts/deliver.sh' 
+      steps {
+              sh 'mvn clean install'
             }
+    }
+    stage('Docker Build') {
+      agent any
+        steps {
+                sh 'docker build -t hugogamaliel/jpa-clientes-spring .'
+              }
         }
-        stage('Docker Build') {
-            agent any
-            steps {
-                    sh 'docker build -t hugogamaliel/jpa-clientes-spring .'
-                  }
-        }
-        stage('Docker Push') {
+    stage('Docker Push') {
             agent any
             steps {
                     sh 'docker push hugogamaliel/jpa-clientes-spring'
