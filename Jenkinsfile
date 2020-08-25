@@ -38,5 +38,15 @@ pipeline
         }
       }
     }
+    stage('Install AWS ecs-cli')
+    {
+      agent any
+      steps
+      {
+        sh 'sudo curl -Lo /usr/local/bin/ecs-cli https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest'
+        sh 'sudo chmod +x /usr/local/bin/ecs-cli'
+        sh 'ecs-cli --version'
+      }
+    }
   }
 }
