@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM openjdk:12
 VOLUME /tmp
 EXPOSE 8080
 ADD target/*.jar jpa-clientes-spring-0.0.1-SNAPSHOT.jar
