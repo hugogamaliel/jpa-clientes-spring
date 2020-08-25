@@ -1,4 +1,4 @@
-FROM openjdk:12
+FROM openjdk:12-oraclelinux7
 VOLUME /tmp
 EXPOSE 8080
 ADD target/*.jar jpa-clientes-spring-0.0.1-SNAPSHOT.jar

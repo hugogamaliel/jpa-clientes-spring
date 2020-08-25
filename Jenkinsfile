@@ -38,7 +38,7 @@ pipeline
         }
       }
     }
-    stage('Install AWS ecs-cli')
+    stage('Install ecs-cli')
     {
       agent any
       steps
