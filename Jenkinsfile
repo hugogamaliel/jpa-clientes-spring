@@ -23,7 +23,7 @@ pipeline
       steps
       {
         echo "Hello World!"
-        sh "echo Hello from the shell"
+        sh "sudo su"
       }
     }
   }
