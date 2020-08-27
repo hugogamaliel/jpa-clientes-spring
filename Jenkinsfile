@@ -23,7 +23,7 @@ pipeline
       steps
       {
         echo "Hello World!"
-        sh "-u root:sudo curl -Lo /usr/local/bin/ecs-cli https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest"
+        sh "sudo curl -Lo /usr/local/bin/ecs-cli https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest"
       }
     }
   }
